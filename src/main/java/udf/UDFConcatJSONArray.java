@@ -3,6 +3,7 @@ package udf;
 import netscape.javascript.JSException;
 import org.apache.hadoop.hive.ql.exec.UDF;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -38,7 +39,7 @@ public class UDFConcatJSONArray extends UDF {
             jsonObject.put("property_value", param);
             result.add(jsonObject.toString());
             return result.toString();
-        } catch (JSException e) {
+        } catch (JSONException e) {
             System.out.println("JSON字符串格式错误！");
             return null;
         }
