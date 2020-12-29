@@ -4,7 +4,6 @@ import netscape.javascript.JSException;
 import org.apache.hadoop.hive.ql.exec.UDF;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.json.JSONString;
 
 import java.util.ArrayList;
 
@@ -35,8 +34,9 @@ public class UDFConcatJSONArray extends UDF {
 
             //把封装处理成JSON格式，添加到属性中
             JSONObject jsonObject = new JSONObject();
-            String s = jsonObject.put("封装 / 箱体", param).toString();
-            result.add(s);
+            jsonObject.put("property_name", "封装 / 箱体");
+            jsonObject.put("property_value", param);
+            result.add(jsonObject.toString());
             return result.toString();
         } catch (JSException e) {
             System.out.println("JSON字符串格式错误！");
