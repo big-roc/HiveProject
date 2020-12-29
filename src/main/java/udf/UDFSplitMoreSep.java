@@ -7,7 +7,7 @@ import java.util.Map;
 
 /**
  * 类名称:UDFSplitMoreSep
- * 类描述:多分隔符拆分：“\\*”、“-”、\\~
+ * 类描述:多分隔符拆分：“\\*”、“-”、\\~、“，”
  * 创建人:roc
  * 创建时间:2020/11/16 16:50
  * 版本:v1.0
@@ -23,6 +23,9 @@ public class UDFSplitMoreSep extends UDF {
 
         String sep3 = "“~”";
 
+        String sep4 = "“，”";
+
+
         if (s == null) {
             return null;
         }
@@ -37,6 +40,8 @@ public class UDFSplitMoreSep extends UDF {
                 split(s, sep2_2, result);
             } else if (s.contains(sep3)) {
                 split(s, sep3, result);
+            } else if (s.contains(sep4)) {
+                split(s, sep4, result);
             } else {
                 result.put(1, s);
             }

@@ -14,6 +14,7 @@ public class UDFFindMoreSep extends UDF {
         String sep1 = "“*”";
         String sep2 = "“-”";
         String sep3 = "“~”";
+        String sep4 = "“，”";
 
         if (s == null) {
             return null;
@@ -29,6 +30,8 @@ public class UDFFindMoreSep extends UDF {
                 result = "-";
             } else if (s.contains(sep3)) {
                 result = "~";
+            } else if (s.contains(sep4)) {
+                result = "，";
             }
 
             return result;
