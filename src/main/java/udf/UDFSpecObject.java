@@ -1,6 +1,7 @@
 package udf;
 
 import org.apache.hadoop.hive.ql.exec.UDF;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -21,13 +22,16 @@ public class UDFSpecObject extends UDF {
         if (s.equals("")) {
             return "";
         }
-
-        ArrayList<String> result = new ArrayList<>();
-        JSONObject jsonObject = new JSONObject(s);
-        jsonObject.put("fileName", "数据手册");
-        jsonObject.put("fileType", 20);
-        jsonObject.put("fileUrl", s);
-        result.add(jsonObject.toString());
-        return result.toString();
+        try {
+            ArrayList<String> result = new ArrayList<>();
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("fileName", "数据手册");
+            jsonObject.put("fileType", 20);
+            jsonObject.put("fileUrl", s);
+            result.add(jsonObject.toString());
+            return result.toString();
+        } catch (JSONException e) {
+            return "";
+        }
     }
 }
