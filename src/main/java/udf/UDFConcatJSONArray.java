@@ -40,7 +40,7 @@ public class UDFConcatJSONArray extends UDF {
 
             //把品牌处理成JSON格式，添加到属性中
             JSONObject jsonBrand = new JSONObject();
-            jsonBrand.put("property_name", "品牌");
+            jsonBrand.put("property_name", "制造商");
             jsonBrand.put("property_value", brand);
             result.add(jsonBrand.toString());
             return result.toString();
