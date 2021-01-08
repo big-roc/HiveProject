@@ -29,6 +29,7 @@ public class UDFFindFromJSONArray extends UDF {
             String result = "";
             for (int i = 0; i < extractObj.length(); ++i) {
                 JSONObject jsonObject = extractObj.getJSONObject(i);
+                //jsonObject.keys()
                 String parameters = jsonObject.getString("parameters");
                 String property_value = jsonObject.getString("property_value");
                 if (parameters.equals(parameter)) {
